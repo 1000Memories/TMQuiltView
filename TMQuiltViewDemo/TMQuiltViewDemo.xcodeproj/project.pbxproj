@@ -46,6 +46,13 @@
 			remoteGlobalIDString = 15F3E22115B9DC6900218C9C;
 			remoteInfo = TMQuiltView;
 		};
+		159C0F6F15C097490078300B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 154331FB15BE354200011AA9 /* TMQuiltView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 15E459FD15C071310031094D;
+			remoteInfo = TMQuiltViewTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				1543320015BE354200011AA9 /* libTMQuiltView.a */,
+				159C0F7015C097490078300B /* TMQuiltViewTests.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -245,6 +253,13 @@
 			fileType = archive.ar;
 			path = libTMQuiltView.a;
 			remoteRef = 154331FF15BE354200011AA9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		159C0F7015C097490078300B /* TMQuiltViewTests.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = TMQuiltViewTests.app;
+			remoteRef = 159C0F6F15C097490078300B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

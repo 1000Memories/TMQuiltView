@@ -24,8 +24,7 @@
 
 const NSInteger kNumberOfCells = 1000;
 
-@interface TMDemoQuiltViewController () <TMQuiltViewDataSource>
-
+@interface TMDemoQuiltViewController ()
 
 @property (nonatomic, retain) NSArray *images;
 
@@ -40,23 +39,13 @@ const NSInteger kNumberOfCells = 1000;
     [super dealloc];
 }
 
-- (NSArray *)images {
-    if (!_images) {
-        NSMutableArray *imageNames = [NSMutableArray array];
-        for(int i = 0; i < kNumberOfCells; i++) {
-            [imageNames addObject:[NSString stringWithFormat:@"%d.jpeg", i % 10 + 1]];
-        }
-        _images = [imageNames retain];
-    }
-    return _images;
-}
+#pragma mark - UIViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     self.quiltView.backgroundColor = [UIColor blackColor];
-    [self.quiltView reloadData];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -68,12 +57,22 @@ const NSInteger kNumberOfCells = 1000;
     }
 }
 
+#pragma mark - QuiltViewControllerDataSource
+
+- (NSArray *)images {
+    if (!_images) {
+        NSMutableArray *imageNames = [NSMutableArray array];
+        for(int i = 0; i < kNumberOfCells; i++) {
+            [imageNames addObject:[NSString stringWithFormat:@"%d.jpeg", i % 10 + 1]];
+        }
+        _images = [imageNames retain];
+    }
+    return _images;
+}
+
 - (UIImage *)imageAtIndexPath:(NSIndexPath *)indexPath {
     return [UIImage imageNamed:[self.images objectAtIndex:indexPath.row]];
 }
-
-
-#pragma mark - QuiltViewControllerDataSource
 
 - (NSInteger)quiltViewNumberOfCells:(TMQuiltView *)TMQuiltView {
     return [self.images count];

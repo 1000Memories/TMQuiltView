@@ -12,7 +12,108 @@ Features
 - Multiple columns
 - Customization of the margins
 - Number of column can depend on orientation
-- Insertions/removal of rows
+- Handling of datasource changes (row insertion/removal)
+
+Installation
+=======
+
+- Drag the TMQuiltView subfolder into your project
+- Import "TMQuiltView.h" wherever you need it
+- Subclass TMQuiltViewController.
+
+Usage
+=======
+
+Below is the excerpt from the demo view controller which shows how easy it is to setup a TMQuiltView. 
+You can also directly open the TMQuiltViewDemo in XCode and build the project.
+
+``` objective-c
+
+@interface TMDemoQuiltViewController ()
+
+@property (nonatomic, retain) NSArray *images;
+
+@end
+
+@implementation TMDemoQuiltViewController
+
+@synthesize images = _images;
+
+- (void)dealloc {
+    [_images release], _images = nil;
+    [super dealloc];
+}
+
+#pragma mark - UIViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.quiltView.backgroundColor = [UIColor blackColor];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    } else {
+        return YES;
+    }
+}
+
+#pragma mark - QuiltViewControllerDataSource
+
+- (NSArray *)images {
+    if (!_images) {
+        NSMutableArray *imageNames = [NSMutableArray array];
+        for(int i = 0; i < kNumberOfCells; i++) {
+            [imageNames addObject:[NSString stringWithFormat:@"%d.jpeg", i % 10 + 1]];
+        }
+        _images = [imageNames retain];
+    }
+    return _images;
+}
+
+- (UIImage *)imageAtIndexPath:(NSIndexPath *)indexPath {
+    return [UIImage imageNamed:[self.images objectAtIndex:indexPath.row]];
+}
+
+- (NSInteger)quiltViewNumberOfCells:(TMQuiltView *)TMQuiltView {
+    return [self.images count];
+}
+
+- (TMQuiltViewCell *)quiltView:(TMQuiltView *)quiltView cellAtIndexPath:(NSIndexPath *)indexPath {
+    TMPhotoQuiltViewCell *cell = (TMPhotoQuiltViewCell *)[quiltView dequeueReusableCellWithReuseIdentifier:@"PhotoCell"];
+    if (!cell) {
+        cell = [[[TMPhotoQuiltViewCell alloc] initWithReuseIdentifier:@"PhotoCell"] autorelease];
+    }
+    
+    cell.photoView.image = [self imageAtIndexPath:indexPath];
+    cell.titleLabel.text = [NSString stringWithFormat:@"%d", indexPath.row + 1];
+    return cell;
+}
+
+#pragma mark - TMQuiltViewDelegate
+
+- (NSInteger)quiltViewNumberOfColumns:(TMQuiltView *)quiltView {
+
+    
+    if ([[UIDevice currentDevice] orientation] == UIDeviceOrientationLandscapeLeft 
+        || [[UIDevice currentDevice] orientation] == UIDeviceOrientationLandscapeRight) {
+        return 3;
+    } else {
+        return 2;
+    }
+}
+
+- (CGFloat)quiltView:(TMQuiltView *)quiltView heightForCellAtIndexPath:(NSIndexPath *)indexPath {
+    return [self imageAtIndexPath:indexPath].size.height / [self quiltViewNumberOfColumns:quiltView];
+}
+
+@end
+
+```
 
 TODOs
 =======

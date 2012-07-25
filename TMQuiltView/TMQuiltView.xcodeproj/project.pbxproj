@@ -13,7 +13,6 @@
 		15E45A0915C071310031094D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15E45A0715C071310031094D /* InfoPlist.strings */; };
 		15E45A0B15C071310031094D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E45A0A15C071310031094D /* main.m */; };
 		15E45A0E15C071320031094D /* Cedar-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E45A0D15C071320031094D /* Cedar-iOS.framework */; };
-		15E45A1015C071320031094D /* ExampleSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15E45A0F15C071320031094D /* ExampleSpec.mm */; };
 		15E45A1615C073F10031094D /* TMQuiltViewTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15E45A1515C073F10031094D /* TMQuiltViewTests.mm */; };
 		15E45A1715C076CE0031094D /* TMQuiltView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F3E22B15B9DC6900218C9C /* TMQuiltView.m */; };
 		15E45A1815C076F90031094D /* TMQuiltViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F3E26215B9DD3300218C9C /* TMQuiltViewCell.m */; };
@@ -34,7 +33,6 @@
 		15E45A0A15C071310031094D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		15E45A0C15C071310031094D /* TMQuiltViewTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TMQuiltViewTests-Prefix.pch"; sourceTree = "<group>"; };
 		15E45A0D15C071320031094D /* Cedar-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Cedar-iOS.framework"; path = "Frameworks/Cedar-iOS.framework"; sourceTree = "<group>"; };
-		15E45A0F15C071320031094D /* ExampleSpec.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ExampleSpec.mm; sourceTree = "<group>"; };
 		15E45A1515C073F10031094D /* TMQuiltViewTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMQuiltViewTests.mm; sourceTree = "<group>"; };
 		15F3E22215B9DC6900218C9C /* libTMQuiltView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTMQuiltView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		15F3E22515B9DC6900218C9C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -73,10 +71,9 @@
 		15E45A0415C071310031094D /* TMQuiltViewTests */ = {
 			isa = PBXGroup;
 			children = (
-				15E45A0D15C071320031094D /* Cedar-iOS.framework */,
-				15E45A0F15C071320031094D /* ExampleSpec.mm */,
-				15E45A0515C071310031094D /* Supporting Files */,
 				15E45A1515C073F10031094D /* TMQuiltViewTests.mm */,
+				15E45A0D15C071320031094D /* Cedar-iOS.framework */,
+				15E45A0515C071310031094D /* Supporting Files */,
 			);
 			path = TMQuiltViewTests;
 			sourceTree = "<group>";
@@ -95,6 +92,7 @@
 		15F3E21715B9DC6800218C9C = {
 			isa = PBXGroup;
 			children = (
+				15F3E22815B9DC6900218C9C /* Supporting Files */,
 				15F3E22715B9DC6900218C9C /* TMQuiltView */,
 				15E45A0415C071310031094D /* TMQuiltViewTests */,
 				15F3E22415B9DC6900218C9C /* Frameworks */,
@@ -130,7 +128,6 @@
 				15F3E22B15B9DC6900218C9C /* TMQuiltView.m */,
 				15F3E26115B9DD3300218C9C /* TMQuiltViewCell.h */,
 				15F3E26215B9DD3300218C9C /* TMQuiltViewCell.m */,
-				15F3E22815B9DC6900218C9C /* Supporting Files */,
 			);
 			path = TMQuiltView;
 			sourceTree = "<group>";
@@ -141,6 +138,7 @@
 				15F3E22915B9DC6900218C9C /* TMQuiltView-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			path = TMQuiltView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,7 +235,6 @@
 				15E45A1815C076F90031094D /* TMQuiltViewCell.m in Sources */,
 				15E45A1715C076CE0031094D /* TMQuiltView.m in Sources */,
 				15E45A0B15C071310031094D /* main.m in Sources */,
-				15E45A1015C071320031094D /* ExampleSpec.mm in Sources */,
 				15E45A1615C073F10031094D /* TMQuiltViewTests.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,6 +382,7 @@
 				15E45A1215C071320031094D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		15F3E21C15B9DC6800218C9C /* Build configuration list for PBXProject "TMQuiltView" */ = {
 			isa = XCConfigurationList;
