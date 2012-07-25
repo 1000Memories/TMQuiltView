@@ -21,8 +21,8 @@
 #import "TMQuiltViewCell.h"
 
 const NSInteger kTMQuiltViewDefaultColumns = 2;
-const CGFloat kDefaultMargin = 10.0f;
-const CGFloat kDefaultCellHeight = 50.0f;
+const CGFloat kTMQuiltViewDefaultMargin = 10.0f;
+const CGFloat kTMQuiltViewDefaultCellHeight = 50.0f;
 
 NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdentifier";
 
@@ -125,6 +125,7 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
     if (self) {
         super.alwaysBounceVertical = YES;
         [self addGestureRecognizer:self.tapGestureRecognizer];
+        _numberOfColumms = kTMQuiltViewDefaultColumns;
     }
     return self;
 }
@@ -226,7 +227,7 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
  Return Value:
  An object representing a cell of the table or nil if the cell is not visible or indexPath is out of range.
  */
-- (TMQuiltViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (TMQuiltViewCell *)cellAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row >= [self numberOfCells]) {
         return nil;
     }
@@ -298,7 +299,7 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
     
     NSInteger numberOfRows = [self numberOfCells];
     for(NSInteger i = 0; i < numberOfRows; i++) {
-        [self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+        [self cellAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
     }
     [self resetView];
 }
@@ -374,14 +375,14 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
         return [self.delegate quiltView:self heightForCellAtIndexPath:indexPath];
     }
     
-    return kDefaultCellHeight;
+    return kTMQuiltViewDefaultCellHeight;
 }
 
 - (CGFloat)cellMargin:(TMQuiltViewMarginType)marginType {
     if ([self.delegate respondsToSelector:@selector(quiltViewMargin:marginType:)]) {
         return [self.delegate quiltViewMargin:self marginType:marginType];
     }
-    return kDefaultMargin;
+    return kTMQuiltViewDefaultMargin;
 }
 
 - (CGFloat)cellWidth {
@@ -508,7 +509,7 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
     NSMutableArray *visibleCells = [NSMutableArray arrayWithCapacity:[self.indexPaths count]];
     
     for(NSIndexPath *indexPath in self.indexPaths) {
-        [visibleCells addObject:[self cellForRowAtIndexPath:indexPath]];
+        [visibleCells addObject:[self cellAtIndexPath:indexPath]];
     }
     
     return visibleCells;

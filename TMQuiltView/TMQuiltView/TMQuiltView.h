@@ -61,7 +61,7 @@ typedef enum {
 @property (nonatomic, assign) id<TMQuiltViewDelegate> delegate;
 
 // Returns the cell if it's visible and indexPath is valid. Returns nil otherwise
-- (TMQuiltViewCell *)cellForRowAtIndexPath:(NSIndexPath*)indexPath;
+- (TMQuiltViewCell *)cellAtIndexPath:(NSIndexPath*)indexPath;
 
 // Returns a cell from the reuse pool associated to reuseIdentifier. Return nil if the pool doesn't
 // contain any cell.

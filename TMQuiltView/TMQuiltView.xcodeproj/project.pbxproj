@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15E45A0015C071310031094D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E459FF15C071310031094D /* UIKit.framework */; };
+		15E45A0115C071310031094D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F3E22515B9DC6900218C9C /* Foundation.framework */; };
+		15E45A0315C071310031094D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E45A0215C071310031094D /* CoreGraphics.framework */; };
+		15E45A0915C071310031094D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15E45A0715C071310031094D /* InfoPlist.strings */; };
+		15E45A0B15C071310031094D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E45A0A15C071310031094D /* main.m */; };
+		15E45A0E15C071320031094D /* Cedar-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E45A0D15C071320031094D /* Cedar-iOS.framework */; };
+		15E45A1015C071320031094D /* ExampleSpec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15E45A0F15C071320031094D /* ExampleSpec.mm */; };
+		15E45A1615C073F10031094D /* TMQuiltViewTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15E45A1515C073F10031094D /* TMQuiltViewTests.mm */; };
+		15E45A1715C076CE0031094D /* TMQuiltView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F3E22B15B9DC6900218C9C /* TMQuiltView.m */; };
+		15E45A1815C076F90031094D /* TMQuiltViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F3E26215B9DD3300218C9C /* TMQuiltViewCell.m */; };
 		15F3E22615B9DC6900218C9C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F3E22515B9DC6900218C9C /* Foundation.framework */; };
 		15F3E22C15B9DC6900218C9C /* TMQuiltView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F3E22B15B9DC6900218C9C /* TMQuiltView.m */; };
 		15F3E26315B9DD3300218C9C /* TMQuiltViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 15F3E26115B9DD3300218C9C /* TMQuiltViewCell.h */; };
@@ -16,6 +26,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15E459FD15C071310031094D /* TMQuiltViewTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMQuiltViewTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		15E459FF15C071310031094D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		15E45A0215C071310031094D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		15E45A0615C071310031094D /* TMQuiltViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TMQuiltViewTests-Info.plist"; sourceTree = "<group>"; };
+		15E45A0815C071310031094D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		15E45A0A15C071310031094D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		15E45A0C15C071310031094D /* TMQuiltViewTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TMQuiltViewTests-Prefix.pch"; sourceTree = "<group>"; };
+		15E45A0D15C071320031094D /* Cedar-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Cedar-iOS.framework"; path = "Frameworks/Cedar-iOS.framework"; sourceTree = "<group>"; };
+		15E45A0F15C071320031094D /* ExampleSpec.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ExampleSpec.mm; sourceTree = "<group>"; };
+		15E45A1515C073F10031094D /* TMQuiltViewTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMQuiltViewTests.mm; sourceTree = "<group>"; };
 		15F3E22215B9DC6900218C9C /* libTMQuiltView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTMQuiltView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		15F3E22515B9DC6900218C9C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		15F3E22915B9DC6900218C9C /* TMQuiltView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TMQuiltView-Prefix.pch"; sourceTree = "<group>"; };
@@ -28,6 +48,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		15E459FA15C071310031094D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15E45A0015C071310031094D /* UIKit.framework in Frameworks */,
+				15E45A0115C071310031094D /* Foundation.framework in Frameworks */,
+				15E45A0315C071310031094D /* CoreGraphics.framework in Frameworks */,
+				15E45A0E15C071320031094D /* Cedar-iOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		15F3E21F15B9DC6900218C9C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -39,10 +70,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15E45A0415C071310031094D /* TMQuiltViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				15E45A0D15C071320031094D /* Cedar-iOS.framework */,
+				15E45A0F15C071320031094D /* ExampleSpec.mm */,
+				15E45A0515C071310031094D /* Supporting Files */,
+				15E45A1515C073F10031094D /* TMQuiltViewTests.mm */,
+			);
+			path = TMQuiltViewTests;
+			sourceTree = "<group>";
+		};
+		15E45A0515C071310031094D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				15E45A0615C071310031094D /* TMQuiltViewTests-Info.plist */,
+				15E45A0715C071310031094D /* InfoPlist.strings */,
+				15E45A0A15C071310031094D /* main.m */,
+				15E45A0C15C071310031094D /* TMQuiltViewTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		15F3E21715B9DC6800218C9C = {
 			isa = PBXGroup;
 			children = (
 				15F3E22715B9DC6900218C9C /* TMQuiltView */,
+				15E45A0415C071310031094D /* TMQuiltViewTests */,
 				15F3E22415B9DC6900218C9C /* Frameworks */,
 				15F3E22315B9DC6900218C9C /* Products */,
 			);
@@ -52,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				15F3E22215B9DC6900218C9C /* libTMQuiltView.a */,
+				15E459FD15C071310031094D /* TMQuiltViewTests.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,6 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				15F3E22515B9DC6900218C9C /* Foundation.framework */,
+				15E459FF15C071310031094D /* UIKit.framework */,
+				15E45A0215C071310031094D /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -101,6 +158,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		15E459FC15C071310031094D /* TMQuiltViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15E45A1315C071320031094D /* Build configuration list for PBXNativeTarget "TMQuiltViewTests" */;
+			buildPhases = (
+				15E459F915C071310031094D /* Sources */,
+				15E459FA15C071310031094D /* Frameworks */,
+				15E459FB15C071310031094D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TMQuiltViewTests;
+			productName = TMQuiltViewTests;
+			productReference = 15E459FD15C071310031094D /* TMQuiltViewTests.app */;
+			productType = "com.apple.product-type.application";
+		};
 		15F3E22115B9DC6900218C9C /* TMQuiltView */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 15F3E22F15B9DC6900218C9C /* Build configuration list for PBXNativeTarget "TMQuiltView" */;
@@ -139,11 +213,35 @@
 			projectRoot = "";
 			targets = (
 				15F3E22115B9DC6900218C9C /* TMQuiltView */,
+				15E459FC15C071310031094D /* TMQuiltViewTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		15E459FB15C071310031094D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15E45A0915C071310031094D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		15E459F915C071310031094D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15E45A1815C076F90031094D /* TMQuiltViewCell.m in Sources */,
+				15E45A1715C076CE0031094D /* TMQuiltView.m in Sources */,
+				15E45A0B15C071310031094D /* main.m in Sources */,
+				15E45A1015C071320031094D /* ExampleSpec.mm in Sources */,
+				15E45A1615C073F10031094D /* TMQuiltViewTests.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		15F3E21E15B9DC6900218C9C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -156,7 +254,63 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		15E45A0715C071310031094D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				15E45A0815C071310031094D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		15E45A1115C071320031094D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/TMQuiltViewTests/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TMQuiltViewTests/TMQuiltViewTests-Prefix.pch";
+				INFOPLIST_FILE = "TMQuiltViewTests/TMQuiltViewTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-lstdc++",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		15E45A1215C071320031094D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/TMQuiltViewTests/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TMQuiltViewTests/TMQuiltViewTests-Prefix.pch";
+				INFOPLIST_FILE = "TMQuiltViewTests/TMQuiltViewTests-Info.plist";
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-lstdc++",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		15F3E22D15B9DC6900218C9C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -224,6 +378,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		15E45A1315C071320031094D /* Build configuration list for PBXNativeTarget "TMQuiltViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15E45A1115C071320031094D /* Debug */,
+				15E45A1215C071320031094D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		15F3E21C15B9DC6800218C9C /* Build configuration list for PBXProject "TMQuiltView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -240,6 +402,7 @@
 				15F3E23115B9DC6900218C9C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
