@@ -38,4 +38,4 @@ DEALINGS IN THE SOFTWARE.
 Contact
 =======
 
-Feel free to reach to us at bruno@1000memories.com.
+Feel free to reach to us at developers@1000memories.com.
