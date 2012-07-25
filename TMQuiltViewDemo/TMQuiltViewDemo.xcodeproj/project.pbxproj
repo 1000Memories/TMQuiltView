@@ -1,0 +1,417 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		15955B8815BF6F9F00D800C7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 15955B8715BF6F9F00D800C7 /* README.md */; };
+		15F3E24215B9DCAE00218C9C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F3E24115B9DCAE00218C9C /* UIKit.framework */; };
+		15F3E24415B9DCAE00218C9C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F3E24315B9DCAE00218C9C /* Foundation.framework */; };
+		15F3E24615B9DCAE00218C9C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F3E24515B9DCAE00218C9C /* CoreGraphics.framework */; };
+		15F3E24C15B9DCAE00218C9C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15F3E24A15B9DCAE00218C9C /* InfoPlist.strings */; };
+		15F3E24E15B9DCAE00218C9C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F3E24D15B9DCAE00218C9C /* main.m */; };
+		15F3E25215B9DCAE00218C9C /* TMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F3E25115B9DCAE00218C9C /* TMAppDelegate.m */; };
+		15F3E25515B9DCAE00218C9C /* TMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F3E25415B9DCAE00218C9C /* TMViewController.m */; };
+		15F3E25815B9DCAE00218C9C /* TMViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F3E25615B9DCAE00218C9C /* TMViewController_iPhone.xib */; };
+		15F3E25B15B9DCAE00218C9C /* TMViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F3E25915B9DCAE00218C9C /* TMViewController_iPad.xib */; };
+		15F3E26615B9DE3700218C9C /* libTMQuiltView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F3E26515B9DE3700218C9C /* libTMQuiltView.a */; };
+		15F3E28515BA091E00218C9C /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 15F3E27B15BA091E00218C9C /* 1.jpeg */; };
+		15F3E28615BA091E00218C9C /* 2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 15F3E27C15BA091E00218C9C /* 2.jpeg */; };
+		15F3E28715BA091E00218C9C /* 3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 15F3E27D15BA091E00218C9C /* 3.jpeg */; };
+		15F3E28815BA091E00218C9C /* 4.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 15F3E27E15BA091E00218C9C /* 4.jpeg */; };
+		15F3E28915BA091E00218C9C /* 5.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 15F3E27F15BA091E00218C9C /* 5.jpeg */; };
+		15F3E28A15BA091E00218C9C /* 6.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 15F3E28015BA091E00218C9C /* 6.jpeg */; };
+		15F3E28B15BA091E00218C9C /* 7.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 15F3E28115BA091E00218C9C /* 7.jpeg */; };
+		15F3E28C15BA091E00218C9C /* 8.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 15F3E28215BA091E00218C9C /* 8.jpeg */; };
+		15F3E28D15BA091E00218C9C /* 9.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 15F3E28315BA091E00218C9C /* 9.jpeg */; };
+		15F3E28E15BA091E00218C9C /* 10.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 15F3E28415BA091E00218C9C /* 10.jpeg */; };
+		15F3E29115BA09CF00218C9C /* TMPhotoQuiltViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F3E29015BA09CF00218C9C /* TMPhotoQuiltViewCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		154331FF15BE354200011AA9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 154331FB15BE354200011AA9 /* TMQuiltView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 15F3E22215B9DC6900218C9C;
+			remoteInfo = TMQuiltView;
+		};
+		1543320215BE355400011AA9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 154331FB15BE354200011AA9 /* TMQuiltView.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 15F3E22115B9DC6900218C9C;
+			remoteInfo = TMQuiltView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		154331FB15BE354200011AA9 /* TMQuiltView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TMQuiltView.xcodeproj; path = ../TMQuiltView/TMQuiltView.xcodeproj; sourceTree = "<group>"; };
+		15955B8715BF6F9F00D800C7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		15F3E23D15B9DCAE00218C9C /* TMQuiltViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMQuiltViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		15F3E24115B9DCAE00218C9C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		15F3E24315B9DCAE00218C9C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		15F3E24515B9DCAE00218C9C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		15F3E24915B9DCAE00218C9C /* TMQuiltViewDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TMQuiltViewDemo-Info.plist"; sourceTree = "<group>"; };
+		15F3E24B15B9DCAE00218C9C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		15F3E24D15B9DCAE00218C9C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		15F3E24F15B9DCAE00218C9C /* TMQuiltViewDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TMQuiltViewDemo-Prefix.pch"; sourceTree = "<group>"; };
+		15F3E25015B9DCAE00218C9C /* TMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMAppDelegate.h; sourceTree = "<group>"; };
+		15F3E25115B9DCAE00218C9C /* TMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TMAppDelegate.m; sourceTree = "<group>"; };
+		15F3E25315B9DCAE00218C9C /* TMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMViewController.h; sourceTree = "<group>"; };
+		15F3E25415B9DCAE00218C9C /* TMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TMViewController.m; sourceTree = "<group>"; };
+		15F3E25715B9DCAE00218C9C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TMViewController_iPhone.xib; sourceTree = "<group>"; };
+		15F3E25A15B9DCAE00218C9C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TMViewController_iPad.xib; sourceTree = "<group>"; };
+		15F3E26515B9DE3700218C9C /* libTMQuiltView.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTMQuiltView.a; path = "../../TMQuiltView/TMQuiltView/build/Release-iphoneos/libTMQuiltView.a"; sourceTree = "<group>"; };
+		15F3E27B15BA091E00218C9C /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1.jpeg; path = TMQuiltViewDemo/images/1.jpeg; sourceTree = "<group>"; };
+		15F3E27C15BA091E00218C9C /* 2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.jpeg; path = TMQuiltViewDemo/images/2.jpeg; sourceTree = "<group>"; };
+		15F3E27D15BA091E00218C9C /* 3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 3.jpeg; path = TMQuiltViewDemo/images/3.jpeg; sourceTree = "<group>"; };
+		15F3E27E15BA091E00218C9C /* 4.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 4.jpeg; path = TMQuiltViewDemo/images/4.jpeg; sourceTree = "<group>"; };
+		15F3E27F15BA091E00218C9C /* 5.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 5.jpeg; path = TMQuiltViewDemo/images/5.jpeg; sourceTree = "<group>"; };
+		15F3E28015BA091E00218C9C /* 6.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 6.jpeg; path = TMQuiltViewDemo/images/6.jpeg; sourceTree = "<group>"; };
+		15F3E28115BA091E00218C9C /* 7.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 7.jpeg; path = TMQuiltViewDemo/images/7.jpeg; sourceTree = "<group>"; };
+		15F3E28215BA091E00218C9C /* 8.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 8.jpeg; path = TMQuiltViewDemo/images/8.jpeg; sourceTree = "<group>"; };
+		15F3E28315BA091E00218C9C /* 9.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 9.jpeg; path = TMQuiltViewDemo/images/9.jpeg; sourceTree = "<group>"; };
+		15F3E28415BA091E00218C9C /* 10.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 10.jpeg; path = TMQuiltViewDemo/images/10.jpeg; sourceTree = "<group>"; };
+		15F3E28F15BA09CF00218C9C /* TMPhotoQuiltViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMPhotoQuiltViewCell.h; sourceTree = "<group>"; };
+		15F3E29015BA09CF00218C9C /* TMPhotoQuiltViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMPhotoQuiltViewCell.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		15F3E23A15B9DCAE00218C9C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15F3E26615B9DE3700218C9C /* libTMQuiltView.a in Frameworks */,
+				15F3E24215B9DCAE00218C9C /* UIKit.framework in Frameworks */,
+				15F3E24415B9DCAE00218C9C /* Foundation.framework in Frameworks */,
+				15F3E24615B9DCAE00218C9C /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		154331FC15BE354200011AA9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1543320015BE354200011AA9 /* libTMQuiltView.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		15F3E23215B9DCAE00218C9C = {
+			isa = PBXGroup;
+			children = (
+				15955B8715BF6F9F00D800C7 /* README.md */,
+				154331FB15BE354200011AA9 /* TMQuiltView.xcodeproj */,
+				15F3E27915BA090100218C9C /* Resources */,
+				15F3E24715B9DCAE00218C9C /* TMQuiltViewDemo */,
+				15F3E24015B9DCAE00218C9C /* Frameworks */,
+				15F3E23E15B9DCAE00218C9C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		15F3E23E15B9DCAE00218C9C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				15F3E23D15B9DCAE00218C9C /* TMQuiltViewDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		15F3E24015B9DCAE00218C9C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				15F3E26515B9DE3700218C9C /* libTMQuiltView.a */,
+				15F3E24115B9DCAE00218C9C /* UIKit.framework */,
+				15F3E24315B9DCAE00218C9C /* Foundation.framework */,
+				15F3E24515B9DCAE00218C9C /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		15F3E24715B9DCAE00218C9C /* TMQuiltViewDemo */ = {
+			isa = PBXGroup;
+			children = (
+				15F3E25015B9DCAE00218C9C /* TMAppDelegate.h */,
+				15F3E25115B9DCAE00218C9C /* TMAppDelegate.m */,
+				15F3E28F15BA09CF00218C9C /* TMPhotoQuiltViewCell.h */,
+				15F3E29015BA09CF00218C9C /* TMPhotoQuiltViewCell.m */,
+				15F3E25315B9DCAE00218C9C /* TMViewController.h */,
+				15F3E25415B9DCAE00218C9C /* TMViewController.m */,
+				15F3E25915B9DCAE00218C9C /* TMViewController_iPad.xib */,
+				15F3E25615B9DCAE00218C9C /* TMViewController_iPhone.xib */,
+				15F3E24815B9DCAE00218C9C /* Supporting Files */,
+			);
+			path = TMQuiltViewDemo;
+			sourceTree = "<group>";
+		};
+		15F3E24815B9DCAE00218C9C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				15F3E24915B9DCAE00218C9C /* TMQuiltViewDemo-Info.plist */,
+				15F3E24A15B9DCAE00218C9C /* InfoPlist.strings */,
+				15F3E24D15B9DCAE00218C9C /* main.m */,
+				15F3E24F15B9DCAE00218C9C /* TMQuiltViewDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		15F3E27915BA090100218C9C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				15F3E27A15BA090600218C9C /* images */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		15F3E27A15BA090600218C9C /* images */ = {
+			isa = PBXGroup;
+			children = (
+				15F3E27B15BA091E00218C9C /* 1.jpeg */,
+				15F3E27C15BA091E00218C9C /* 2.jpeg */,
+				15F3E27D15BA091E00218C9C /* 3.jpeg */,
+				15F3E27E15BA091E00218C9C /* 4.jpeg */,
+				15F3E27F15BA091E00218C9C /* 5.jpeg */,
+				15F3E28015BA091E00218C9C /* 6.jpeg */,
+				15F3E28115BA091E00218C9C /* 7.jpeg */,
+				15F3E28215BA091E00218C9C /* 8.jpeg */,
+				15F3E28315BA091E00218C9C /* 9.jpeg */,
+				15F3E28415BA091E00218C9C /* 10.jpeg */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		15F3E23C15B9DCAE00218C9C /* TMQuiltViewDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15F3E25E15B9DCAE00218C9C /* Build configuration list for PBXNativeTarget "TMQuiltViewDemo" */;
+			buildPhases = (
+				15F3E23915B9DCAE00218C9C /* Sources */,
+				15F3E23A15B9DCAE00218C9C /* Frameworks */,
+				15F3E23B15B9DCAE00218C9C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1543320315BE355400011AA9 /* PBXTargetDependency */,
+			);
+			name = TMQuiltViewDemo;
+			productName = TMQuiltViewDemo;
+			productReference = 15F3E23D15B9DCAE00218C9C /* TMQuiltViewDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		15F3E23415B9DCAE00218C9C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TM;
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 15F3E23715B9DCAE00218C9C /* Build configuration list for PBXProject "TMQuiltViewDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 15F3E23215B9DCAE00218C9C;
+			productRefGroup = 15F3E23E15B9DCAE00218C9C /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 154331FC15BE354200011AA9 /* Products */;
+					ProjectRef = 154331FB15BE354200011AA9 /* TMQuiltView.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				15F3E23C15B9DCAE00218C9C /* TMQuiltViewDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1543320015BE354200011AA9 /* libTMQuiltView.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libTMQuiltView.a;
+			remoteRef = 154331FF15BE354200011AA9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		15F3E23B15B9DCAE00218C9C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15F3E24C15B9DCAE00218C9C /* InfoPlist.strings in Resources */,
+				15F3E25815B9DCAE00218C9C /* TMViewController_iPhone.xib in Resources */,
+				15F3E25B15B9DCAE00218C9C /* TMViewController_iPad.xib in Resources */,
+				15F3E28515BA091E00218C9C /* 1.jpeg in Resources */,
+				15F3E28615BA091E00218C9C /* 2.jpeg in Resources */,
+				15F3E28715BA091E00218C9C /* 3.jpeg in Resources */,
+				15F3E28815BA091E00218C9C /* 4.jpeg in Resources */,
+				15F3E28915BA091E00218C9C /* 5.jpeg in Resources */,
+				15F3E28A15BA091E00218C9C /* 6.jpeg in Resources */,
+				15F3E28B15BA091E00218C9C /* 7.jpeg in Resources */,
+				15F3E28C15BA091E00218C9C /* 8.jpeg in Resources */,
+				15F3E28D15BA091E00218C9C /* 9.jpeg in Resources */,
+				15F3E28E15BA091E00218C9C /* 10.jpeg in Resources */,
+				15955B8815BF6F9F00D800C7 /* README.md in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		15F3E23915B9DCAE00218C9C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15F3E24E15B9DCAE00218C9C /* main.m in Sources */,
+				15F3E25215B9DCAE00218C9C /* TMAppDelegate.m in Sources */,
+				15F3E25515B9DCAE00218C9C /* TMViewController.m in Sources */,
+				15F3E29115BA09CF00218C9C /* TMPhotoQuiltViewCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1543320315BE355400011AA9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TMQuiltView;
+			targetProxy = 1543320215BE355400011AA9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		15F3E24A15B9DCAE00218C9C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				15F3E24B15B9DCAE00218C9C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		15F3E25615B9DCAE00218C9C /* TMViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				15F3E25715B9DCAE00218C9C /* en */,
+			);
+			name = TMViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		15F3E25915B9DCAE00218C9C /* TMViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				15F3E25A15B9DCAE00218C9C /* en */,
+			);
+			name = TMViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		15F3E25C15B9DCAE00218C9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		15F3E25D15B9DCAE00218C9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		15F3E25F15B9DCAE00218C9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TMQuiltViewDemo/TMQuiltViewDemo-Prefix.pch";
+				INFOPLIST_FILE = "TMQuiltViewDemo/TMQuiltViewDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		15F3E26015B9DCAE00218C9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TMQuiltViewDemo/TMQuiltViewDemo-Prefix.pch";
+				INFOPLIST_FILE = "TMQuiltViewDemo/TMQuiltViewDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		15F3E23715B9DCAE00218C9C /* Build configuration list for PBXProject "TMQuiltViewDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15F3E25C15B9DCAE00218C9C /* Debug */,
+				15F3E25D15B9DCAE00218C9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15F3E25E15B9DCAE00218C9C /* Build configuration list for PBXNativeTarget "TMQuiltViewDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15F3E25F15B9DCAE00218C9C /* Debug */,
+				15F3E26015B9DCAE00218C9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 15F3E23415B9DCAE00218C9C /* Project object */;
+}
