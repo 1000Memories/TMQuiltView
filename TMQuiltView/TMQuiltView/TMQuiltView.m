@@ -503,6 +503,15 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
     }
 }
 
+- (void)setFrame:(CGRect)frame {
+    [super setFrame:frame];
+    
+    // We need to recompute the cell tops because their width is 
+    // based on the bounding width, and their height is generally based
+    // on their width.
+    [self resetView];
+}
+
 #pragma mark - Cell visibility
 
 - (NSArray *)visibleCells {
