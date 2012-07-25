@@ -19,6 +19,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TMViewController : TMQuiltViewController
+@interface TMDemoQuiltViewController : TMQuiltViewController
 
 @end

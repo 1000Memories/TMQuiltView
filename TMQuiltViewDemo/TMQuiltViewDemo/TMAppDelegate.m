@@ -19,7 +19,7 @@
 
 #import "TMAppDelegate.h"
 
-#import "TMViewController.h"
+#import "TMDemoQuiltViewController.h"
 
 @implementation TMAppDelegate
 
@@ -38,9 +38,9 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        self.viewController = [[[TMViewController alloc] initWithNibName:@"TMViewController_iPhone" bundle:nil] autorelease];
+        self.viewController = [[[TMDemoQuiltViewController alloc] initWithNibName:@"TMViewController_iPhone" bundle:nil] autorelease];
     } else {
-        self.viewController = [[[TMViewController alloc] initWithNibName:@"TMViewController_iPad" bundle:nil] autorelease];
+        self.viewController = [[[TMDemoQuiltViewController alloc] initWithNibName:@"TMViewController_iPad" bundle:nil] autorelease];
     }
     
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleBlackOpaque;

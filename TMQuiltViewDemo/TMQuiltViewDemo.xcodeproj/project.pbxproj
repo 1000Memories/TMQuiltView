@@ -14,9 +14,9 @@
 		15F3E24C15B9DCAE00218C9C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15F3E24A15B9DCAE00218C9C /* InfoPlist.strings */; };
 		15F3E24E15B9DCAE00218C9C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F3E24D15B9DCAE00218C9C /* main.m */; };
 		15F3E25215B9DCAE00218C9C /* TMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F3E25115B9DCAE00218C9C /* TMAppDelegate.m */; };
-		15F3E25515B9DCAE00218C9C /* TMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F3E25415B9DCAE00218C9C /* TMViewController.m */; };
-		15F3E25815B9DCAE00218C9C /* TMViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F3E25615B9DCAE00218C9C /* TMViewController_iPhone.xib */; };
-		15F3E25B15B9DCAE00218C9C /* TMViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F3E25915B9DCAE00218C9C /* TMViewController_iPad.xib */; };
+		15F3E25515B9DCAE00218C9C /* TMDemoQuiltViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F3E25415B9DCAE00218C9C /* TMDemoQuiltViewController.m */; };
+		15F3E25815B9DCAE00218C9C /* TMDemoQuiltViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F3E25615B9DCAE00218C9C /* TMDemoQuiltViewController_iPhone.xib */; };
+		15F3E25B15B9DCAE00218C9C /* TMDemoQuiltViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15F3E25915B9DCAE00218C9C /* TMDemoQuiltViewController_iPad.xib */; };
 		15F3E26615B9DE3700218C9C /* libTMQuiltView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F3E26515B9DE3700218C9C /* libTMQuiltView.a */; };
 		15F3E28515BA091E00218C9C /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 15F3E27B15BA091E00218C9C /* 1.jpeg */; };
 		15F3E28615BA091E00218C9C /* 2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 15F3E27C15BA091E00218C9C /* 2.jpeg */; };
@@ -61,10 +61,10 @@
 		15F3E24F15B9DCAE00218C9C /* TMQuiltViewDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TMQuiltViewDemo-Prefix.pch"; sourceTree = "<group>"; };
 		15F3E25015B9DCAE00218C9C /* TMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMAppDelegate.h; sourceTree = "<group>"; };
 		15F3E25115B9DCAE00218C9C /* TMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TMAppDelegate.m; sourceTree = "<group>"; };
-		15F3E25315B9DCAE00218C9C /* TMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMViewController.h; sourceTree = "<group>"; };
-		15F3E25415B9DCAE00218C9C /* TMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TMViewController.m; sourceTree = "<group>"; };
-		15F3E25715B9DCAE00218C9C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TMViewController_iPhone.xib; sourceTree = "<group>"; };
-		15F3E25A15B9DCAE00218C9C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TMViewController_iPad.xib; sourceTree = "<group>"; };
+		15F3E25315B9DCAE00218C9C /* TMDemoQuiltViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMDemoQuiltViewController.h; sourceTree = "<group>"; };
+		15F3E25415B9DCAE00218C9C /* TMDemoQuiltViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TMDemoQuiltViewController.m; sourceTree = "<group>"; };
+		15F3E25715B9DCAE00218C9C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TMDemoQuiltViewController_iPhone.xib; sourceTree = "<group>"; };
+		15F3E25A15B9DCAE00218C9C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TMDemoQuiltViewController_iPad.xib; sourceTree = "<group>"; };
 		15F3E26515B9DE3700218C9C /* libTMQuiltView.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTMQuiltView.a; path = "../../TMQuiltView/TMQuiltView/build/Release-iphoneos/libTMQuiltView.a"; sourceTree = "<group>"; };
 		15F3E27B15BA091E00218C9C /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1.jpeg; path = TMQuiltViewDemo/images/1.jpeg; sourceTree = "<group>"; };
 		15F3E27C15BA091E00218C9C /* 2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.jpeg; path = TMQuiltViewDemo/images/2.jpeg; sourceTree = "<group>"; };
@@ -141,10 +141,10 @@
 				15F3E25115B9DCAE00218C9C /* TMAppDelegate.m */,
 				15F3E28F15BA09CF00218C9C /* TMPhotoQuiltViewCell.h */,
 				15F3E29015BA09CF00218C9C /* TMPhotoQuiltViewCell.m */,
-				15F3E25315B9DCAE00218C9C /* TMViewController.h */,
-				15F3E25415B9DCAE00218C9C /* TMViewController.m */,
-				15F3E25915B9DCAE00218C9C /* TMViewController_iPad.xib */,
-				15F3E25615B9DCAE00218C9C /* TMViewController_iPhone.xib */,
+				15F3E25315B9DCAE00218C9C /* TMDemoQuiltViewController.h */,
+				15F3E25415B9DCAE00218C9C /* TMDemoQuiltViewController.m */,
+				15F3E25915B9DCAE00218C9C /* TMDemoQuiltViewController_iPad.xib */,
+				15F3E25615B9DCAE00218C9C /* TMDemoQuiltViewController_iPhone.xib */,
 				15F3E24815B9DCAE00218C9C /* Supporting Files */,
 			);
 			path = TMQuiltViewDemo;
@@ -255,8 +255,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				15F3E24C15B9DCAE00218C9C /* InfoPlist.strings in Resources */,
-				15F3E25815B9DCAE00218C9C /* TMViewController_iPhone.xib in Resources */,
-				15F3E25B15B9DCAE00218C9C /* TMViewController_iPad.xib in Resources */,
+				15F3E25815B9DCAE00218C9C /* TMDemoQuiltViewController_iPhone.xib in Resources */,
+				15F3E25B15B9DCAE00218C9C /* TMDemoQuiltViewController_iPad.xib in Resources */,
 				15F3E28515BA091E00218C9C /* 1.jpeg in Resources */,
 				15F3E28615BA091E00218C9C /* 2.jpeg in Resources */,
 				15F3E28715BA091E00218C9C /* 3.jpeg in Resources */,
@@ -280,7 +280,7 @@
 			files = (
 				15F3E24E15B9DCAE00218C9C /* main.m in Sources */,
 				15F3E25215B9DCAE00218C9C /* TMAppDelegate.m in Sources */,
-				15F3E25515B9DCAE00218C9C /* TMViewController.m in Sources */,
+				15F3E25515B9DCAE00218C9C /* TMDemoQuiltViewController.m in Sources */,
 				15F3E29115BA09CF00218C9C /* TMPhotoQuiltViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,20 +304,20 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		15F3E25615B9DCAE00218C9C /* TMViewController_iPhone.xib */ = {
+		15F3E25615B9DCAE00218C9C /* TMDemoQuiltViewController_iPhone.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				15F3E25715B9DCAE00218C9C /* en */,
 			);
-			name = TMViewController_iPhone.xib;
+			name = TMDemoQuiltViewController_iPhone.xib;
 			sourceTree = "<group>";
 		};
-		15F3E25915B9DCAE00218C9C /* TMViewController_iPad.xib */ = {
+		15F3E25915B9DCAE00218C9C /* TMDemoQuiltViewController_iPad.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				15F3E25A15B9DCAE00218C9C /* en */,
 			);
-			name = TMViewController_iPad.xib;
+			name = TMDemoQuiltViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

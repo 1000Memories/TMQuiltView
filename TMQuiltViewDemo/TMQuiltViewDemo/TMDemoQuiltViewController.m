@@ -18,20 +18,20 @@
 //
 
 
-#import "TMViewController.h"
+#import "TMDemoQuiltViewController.h"
 
 #import "TMPhotoQuiltViewCell.h"
 
 const NSInteger kNumberOfCells = 1000;
 
-@interface TMViewController () <TMQuiltViewDataSource>
+@interface TMDemoQuiltViewController () <TMQuiltViewDataSource>
 
 
 @property (nonatomic, retain) NSArray *images;
 
 @end
 
-@implementation TMViewController
+@implementation TMDemoQuiltViewController
 
 @synthesize images = _images;
 
@@ -106,7 +106,5 @@ const NSInteger kNumberOfCells = 1000;
 - (CGFloat)quiltView:(TMQuiltView *)quiltView heightForCellAtIndexPath:(NSIndexPath *)indexPath {
     return [self imageAtIndexPath:indexPath].size.height / [self quiltViewNumberOfColumns:quiltView];
 }
-
-
 
 @end
