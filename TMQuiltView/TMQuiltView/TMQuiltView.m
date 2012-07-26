@@ -231,7 +231,6 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
     if (indexPath.row >= [self numberOfCells]) {
         return nil;
     }
-    [self.indexPaths addObject:indexPath];
     for(int i = 0; i < _numberOfColumms; i++) {
         TMQuiltViewCell *cell = [self.indexPathToViewByColumn[i] objectForKey:indexPath];
         if (cell) {
@@ -299,7 +298,9 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
     
     NSInteger numberOfRows = [self numberOfCells];
     for(NSInteger i = 0; i < numberOfRows; i++) {
-        [self cellAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+        [self.indexPaths addObject:indexPath];
+        [self cellAtIndexPath:indexPath];
     }
     [self resetView];
 }
@@ -518,7 +519,10 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
     NSMutableArray *visibleCells = [NSMutableArray arrayWithCapacity:[self.indexPaths count]];
     
     for(NSIndexPath *indexPath in self.indexPaths) {
-        [visibleCells addObject:[self cellAtIndexPath:indexPath]];
+        TMQuiltViewCell *cell = [self cellAtIndexPath:indexPath];
+        if (cell) {
+            [visibleCells addObject:cell];
+        }
     }
     
     return visibleCells;
