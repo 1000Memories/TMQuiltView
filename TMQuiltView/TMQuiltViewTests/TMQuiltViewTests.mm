@@ -58,7 +58,7 @@ describe(@"Initializing a QuiltView", ^{
         
         describe(@"when inserting a rows", ^{
             
-            fit(@"shouldn't add two times the same index path", ^{
+            it(@"shouldn't add two times the same index path", ^{
                 
                 mockDataSource stub_method(@selector(quiltViewNumberOfCells:)).and_return(1);
                 mockDataSource stub_method(@selector(quiltView:cellAtIndexPath:)).and_return([[[TMQuiltViewCell alloc] initWithReuseIdentifier:nil] autorelease]);
@@ -75,8 +75,6 @@ describe(@"Initializing a QuiltView", ^{
             });
             
         });
-        
-        
         
     });
 });
