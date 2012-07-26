@@ -120,6 +120,7 @@ TODOs
 
 - ARC
 - Handle NSIndexPath sections
+- Interface is still limited compared to UITableView's
 - Better animations
 
 License

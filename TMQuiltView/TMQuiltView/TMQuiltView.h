@@ -89,6 +89,12 @@ typedef enum {
 // Returns the number of cells in the quilt
 - (NSInteger)numberOfCells;
 
+// Returns the number of columns in the quilt
+- (NSInteger)numberOfColumns;
+
+// Returns the number of cells in the specified column
+- (NSInteger)numberOfCellsInColumn:(NSInteger)column;
+
 @end
 
 #import "TMQuiltViewCell.h"

@@ -210,6 +210,10 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
     return [self.dataSource quiltViewNumberOfCells:self];
 }
 
+- (NSInteger)numberOfCellsInColumn:(NSInteger)column {
+    return [self.indexPathsByColumn[column] count];
+}
+
 - (NSInteger)numberOfColumns {
     NSInteger numberOfColumns = 0;
     if ([self.delegate respondsToSelector:@selector(quiltViewNumberOfColumns:)]) {
