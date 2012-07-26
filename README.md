@@ -3,7 +3,7 @@ TMQuiltView
 
 We developed a quilt view for our [Shoebox app](http://itunes.apple.com/us/app/shoebox-by-1000memories/id472126139?mt=8)
 
-[![](http://1000memories.com/images/quiltview1.png)](http://1000memories.com/images/quiltview1.png)
+[![](http://s3.amazonaws.com/fromus/blog_posts/quilt-camera-ipad-small.png)](http://s3.amazonaws.com/fromus/blog_posts/quilt-camera-ipad.png)
 
 Features
 =======
