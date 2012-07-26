@@ -117,7 +117,10 @@ You can also directly open the TMQuiltViewDemo in XCode and build the project.
 
 TODOs
 =======
+
 - ARC
+- Handle NSIndexPath sections
+- Better animations
 
 License
 =======
