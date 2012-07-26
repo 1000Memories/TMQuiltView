@@ -42,7 +42,7 @@ typedef enum {
 
 @optional
 
-- (void)quiltView:(TMQuiltView *)quiltView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)quiltView:(TMQuiltView *)quiltView didSelectCellAtIndexPath:(NSIndexPath *)indexPath;
 
 // Must return a number of column greater than 0. Otherwise a default value is used.
 - (NSInteger)quiltViewNumberOfColumns:(TMQuiltView *)quiltView;
@@ -76,9 +76,9 @@ typedef enum {
 // Currently calling beginUpdates and endUpdates before and after row insertions and removals is required.
 - (void)beginUpdates;
 - (void)endUpdates;
-- (void)insertRowAtIndexPath:(NSIndexPath *)indexPaths;
-- (void)deleteRowAtIndexPath:(NSIndexPath *)indexPaths;
-- (void)moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath;
+- (void)insertCellAtIndexPath:(NSIndexPath *)indexPaths;
+- (void)deleteCellAtIndexPath:(NSIndexPath *)indexPaths;
+- (void)moveCellAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath;
 
 // Returns the height of a cell
 - (CGFloat)heightForCellAtIndexPath:(NSIndexPath *)indexPath;

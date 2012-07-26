@@ -259,29 +259,29 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
     self.rowsToInsert = [NSMutableSet set];
 }
 
-- (void)insertRowAtIndexPath:(NSIndexPath *)insertedIndexPath {
+- (void)insertCellAtIndexPath:(NSIndexPath *)insertedIndexPath {
     [self.rowsToInsert addObject:insertedIndexPath];
     
     // Shift all rows after the inserted one by one row index up
     for(NSIndexPath *indexPath in self.indexPaths) {
         if (indexPath.row >= insertedIndexPath.row) {
-            [self moveRowAtIndexPath:indexPath toIndexPath:[NSIndexPath indexPathForRow:indexPath.row + 1 inSection:indexPath.section]];
+            [self moveCellAtIndexPath:indexPath toIndexPath:[NSIndexPath indexPathForRow:indexPath.row + 1 inSection:indexPath.section]];
         }
     }
 }
 
-- (void)deleteRowAtIndexPath:(NSIndexPath *)deletedIndexPath {
+- (void)deleteCellAtIndexPath:(NSIndexPath *)deletedIndexPath {
     [self.rowsToDelete addObject:deletedIndexPath];
     
     // Shift all rows after the deleted one by one row index down
     for(NSIndexPath *indexPath in self.indexPaths) {
         if (indexPath.row > deletedIndexPath.row) {
-            [self moveRowAtIndexPath:indexPath toIndexPath:[NSIndexPath indexPathForRow:indexPath.row - 1 inSection:indexPath.section]];
+            [self moveCellAtIndexPath:indexPath toIndexPath:[NSIndexPath indexPathForRow:indexPath.row - 1 inSection:indexPath.section]];
         }
     }
 }
 
-- (void)moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath {
+- (void)moveCellAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath {
     [self.rowsToDelete addObject:indexPath];
     [self.rowsToInsert addObject:newIndexPath];
 }
@@ -571,8 +571,8 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
             TMQuiltViewCell *photoCell = [self.indexPathToViewByColumn[i] objectForKey:indexPath];
             if (CGRectContainsPoint(photoCell.frame, tapPoint)) {
                 photoCell.selected = YES;
-                if ([self.delegate respondsToSelector:@selector(quiltView:didSelectRowAtIndexPath:)]) {
-                    [self.delegate quiltView:self didSelectRowAtIndexPath:indexPath];
+                if ([self.delegate respondsToSelector:@selector(quiltView:didSelectCellAtIndexPath:)]) {
+                    [self.delegate quiltView:self didSelectCellAtIndexPath:indexPath];
                 }
                 return;
             }

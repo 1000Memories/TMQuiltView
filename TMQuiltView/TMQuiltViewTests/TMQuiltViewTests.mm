@@ -64,8 +64,8 @@ describe(@"Initializing a QuiltView", ^{
                 mockDataSource stub_method(@selector(quiltView:cellAtIndexPath:)).and_return([[[TMQuiltViewCell alloc] initWithReuseIdentifier:nil] autorelease]);
                 
                 [quiltView beginUpdates];
-                [quiltView insertRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-                [quiltView insertRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+                [quiltView insertCellAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+                [quiltView insertCellAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
                 [quiltView endUpdates];
                 
                 // We need to force the layout
