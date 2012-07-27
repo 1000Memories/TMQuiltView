@@ -15,6 +15,7 @@ describe(@"A TMQuiltView", ^{
         quiltView = [[TMQuiltView alloc] init];
         mockDataSource = nice_fake_for(@protocol(TMQuiltViewDataSource));
         mockDelegate = nice_fake_for(@protocol(TMQuiltViewDelegate));
+        mockDataSource stub_method(@selector(quiltView:cellAtIndexPath:)).and_return([[[TMQuiltViewCell alloc] initWithReuseIdentifier:nil] autorelease]);
     });
     
     describe(@"when created", ^{
@@ -57,8 +58,6 @@ describe(@"A TMQuiltView", ^{
         });
         
         it(@"shouldn't have any visible cell", ^{
-            mockDataSource stub_method(@selector(quiltView:cellAtIndexPath:)).and_return([[[TMQuiltViewCell alloc] initWithReuseIdentifier:nil] autorelease]);
-            
             [quiltView beginUpdates];
             [quiltView insertCellAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
             [quiltView endUpdates];
@@ -93,13 +92,18 @@ describe(@"A TMQuiltView", ^{
                 [quiltView cellWidth] should equal((kFrameSize - (kMargin + ([quiltView numberOfColumns] - 1) * kMargin + kMargin))/[quiltView numberOfColumns]);
             });
             
+            it(@"should have the content size be proportional to the number of cells", ^(void) {
+                mockDataSource stub_method(@selector(quiltViewNumberOfCells:)).and_return(1);
+                [quiltView reloadData];
+                [quiltView contentSize].height should equal(kMargin + kCellHeight + kMargin);
+            });
+
         });
         
         describe(@"when its data source has one cell", ^{
 
             beforeEach(^(void) {
                 mockDataSource stub_method(@selector(quiltViewNumberOfCells:)).and_return(1);
-                mockDataSource stub_method(@selector(quiltView:cellAtIndexPath:)).and_return([[[TMQuiltViewCell alloc] initWithReuseIdentifier:nil] autorelease]);
                 [quiltView reloadData];
             });
             
@@ -129,7 +133,6 @@ describe(@"A TMQuiltView", ^{
             
             beforeEach(^(void) {
                 mockDataSource stub_method(@selector(quiltViewNumberOfCells:)).and_return(3);
-                mockDataSource stub_method(@selector(quiltView:cellAtIndexPath:)).and_return([[[TMQuiltViewCell alloc] initWithReuseIdentifier:nil] autorelease]);
                 [quiltView reloadData];
                 [quiltView layoutSubviews];
             });
