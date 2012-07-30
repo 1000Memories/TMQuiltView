@@ -3,19 +3,41 @@ using namespace Cedar::Doubles;
 
 #import "TMQuiltView.h"
 
+@interface TMMockQuiltViewDataSource : NSObject <TMQuiltViewDataSource>
+
+@property (nonatomic, assign) NSInteger numberOfCells;
+
+@end
+
+@implementation TMMockQuiltViewDataSource
+
+- (NSInteger)quiltViewNumberOfCells:(TMQuiltView *)TMQuiltView {
+    return self.numberOfCells;
+}
+
+- (TMQuiltViewCell *)quiltView:(TMQuiltView *)quiltView cellAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row < self.numberOfCells) {
+        return [[[TMQuiltViewCell alloc] initWithReuseIdentifier:nil] autorelease];
+    } else {
+        NSLog(@"Data source doesn't have row %d", indexPath.row);
+        @throw @"Error";
+    }
+}
+
+@end
+
 SPEC_BEGIN(QuiltViewSpec)
 
 describe(@"A TMQuiltView", ^{
     
     __block TMQuiltView *quiltView;
-    __block id<CedarDouble> mockDataSource;
+    __block TMMockQuiltViewDataSource *mockDataSource;
     __block id<CedarDouble> mockDelegate;
     
     beforeEach(^{
         quiltView = [[TMQuiltView alloc] init];
-        mockDataSource = nice_fake_for(@protocol(TMQuiltViewDataSource));
+        mockDataSource = [[TMMockQuiltViewDataSource alloc] init];
         mockDelegate = nice_fake_for(@protocol(TMQuiltViewDelegate));
-        mockDataSource stub_method(@selector(quiltView:cellAtIndexPath:)).and_return([[[TMQuiltViewCell alloc] initWithReuseIdentifier:nil] autorelease]);
     });
     
     describe(@"when created", ^{
@@ -38,7 +60,7 @@ describe(@"A TMQuiltView", ^{
     describe(@"with a data source, without delegate and with an CGRectZero frame", ^{
         
         beforeEach(^{
-            mockDataSource stub_method(@selector(quiltViewNumberOfCells:)).and_return(1);
+            mockDataSource.numberOfCells = 1;
             
             quiltView.dataSource = (id<TMQuiltViewDataSource>)mockDataSource;
         });
@@ -93,7 +115,7 @@ describe(@"A TMQuiltView", ^{
             });
             
             it(@"should have the content size be proportional to the number of cells", ^(void) {
-                mockDataSource stub_method(@selector(quiltViewNumberOfCells:)).and_return(1);
+                mockDataSource.numberOfCells = 1;
                 [quiltView reloadData];
                 [quiltView contentSize].height should equal(kMargin + kCellHeight + kMargin);
             });
@@ -103,7 +125,7 @@ describe(@"A TMQuiltView", ^{
         describe(@"when its data source has one cell", ^{
 
             beforeEach(^(void) {
-                mockDataSource stub_method(@selector(quiltViewNumberOfCells:)).and_return(1);
+                mockDataSource.numberOfCells = 1;
                 [quiltView reloadData];
             });
             
@@ -132,7 +154,7 @@ describe(@"A TMQuiltView", ^{
         describe(@"when its datasource has three cells", ^{
             
             beforeEach(^(void) {
-                mockDataSource stub_method(@selector(quiltViewNumberOfCells:)).and_return(3);
+                mockDataSource.numberOfCells = 3;
                 [quiltView reloadData];
                 [quiltView layoutSubviews];
             });
@@ -142,6 +164,20 @@ describe(@"A TMQuiltView", ^{
                 [quiltView numberOfCellsInColumn:0] should equal(2);
                 [quiltView numberOfCellsInColumn:1] should equal(1);
             });
+        });
+        
+        describe(@"when the delegate changes the number of cells and when reloadData is called", ^{
+           
+            it(@"should update the quilt view to contain the new number of cells", ^{
+                mockDataSource.numberOfCells = 3;
+                [quiltView reloadData];
+                [quiltView layoutSubviews];
+                mockDataSource.numberOfCells = 2;
+                [quiltView reloadData];
+                [quiltView layoutSubviews];
+                
+            });
+            
         });
 
     });
