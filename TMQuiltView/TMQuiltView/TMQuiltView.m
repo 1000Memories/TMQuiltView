@@ -300,6 +300,8 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
     
     _numberOfColumms = [self numberOfColumns];
     
+	[self.indexPaths removeAllObjects];
+	
     NSInteger numberOfRows = [self numberOfCells];
     for(NSInteger i = 0; i < numberOfRows; i++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
