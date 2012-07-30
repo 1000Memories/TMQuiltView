@@ -139,6 +139,7 @@ describe(@"A TMQuiltView", ^{
           
             it(@"shouldn't add additional cells to the same index path", ^{
                 
+                mockDataSource.numberOfCells = 2;
                 [quiltView beginUpdates];
                 [quiltView insertCellAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
                 [quiltView insertCellAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
@@ -146,7 +147,7 @@ describe(@"A TMQuiltView", ^{
                 
                 [quiltView layoutSubviews];
                 
-                [[quiltView visibleCells] count] should equal(1);
+                [[quiltView visibleCells] count] should equal(2);
             });
             
         });
