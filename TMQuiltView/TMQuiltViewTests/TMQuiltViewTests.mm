@@ -150,6 +150,31 @@ describe(@"A TMQuiltView", ^{
                 [[quiltView visibleCells] count] should equal(2);
             });
             
+            it(@"should remove cell when deleteCellAtIndexPath: is called", ^{
+                
+                mockDataSource.numberOfCells = 0;
+                [quiltView beginUpdates];
+                [quiltView deleteCellAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+                [quiltView endUpdates];
+                
+                [quiltView layoutSubviews];
+                
+                [[quiltView visibleCells] count] should equal(0);
+            });
+
+            it(@"should handle deletion and insertion of rows in the same batch", ^{
+                
+                mockDataSource.numberOfCells = 1;
+                [quiltView beginUpdates];
+                [quiltView deleteCellAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+                [quiltView insertCellAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+                [quiltView endUpdates];
+                
+                [quiltView layoutSubviews];
+                
+                [[quiltView visibleCells] count] should equal(1);
+            });
+            
         });
         
         describe(@"when its datasource has three cells", ^{
@@ -178,6 +203,51 @@ describe(@"A TMQuiltView", ^{
                 [quiltView layoutSubviews];
                 
             });
+            
+        });
+        
+        describe(@"inserting and removing cells", ^{
+            
+            beforeEach(^{
+                quiltView.frame = CGRectMake(0, 0, kFrameSize, kFrameSize);
+                quiltView.dataSource = mockDataSource;
+                
+            });
+            
+            it(@"inserting news cells should increase the cell count", ^{
+                mockDataSource.numberOfCells = 1;
+                [quiltView reloadData];
+                [quiltView numberOfCells] should equal(1);
+                
+                mockDataSource.numberOfCells = 3;
+                [quiltView beginUpdates];
+                [quiltView insertCellAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+                [quiltView insertCellAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+                [quiltView endUpdates];
+                
+                [quiltView layoutSubviews];
+                
+                [[quiltView visibleCells] count] should equal(3);
+            });
+            
+            it(@"deleting then inserting cells should increase the cell count and take in account the deletion", ^{
+                
+                mockDataSource.numberOfCells = 1;
+                [quiltView reloadData];
+                [quiltView numberOfCells] should equal(1);
+                
+                mockDataSource.numberOfCells = 2;
+                [quiltView beginUpdates];
+                [quiltView deleteCellAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+                [quiltView insertCellAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+                [quiltView insertCellAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+                [quiltView endUpdates];
+                
+                [quiltView layoutSubviews];
+                
+                [[quiltView visibleCells] count] should equal(2);
+            });
+            
             
         });
 

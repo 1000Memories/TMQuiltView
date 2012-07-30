@@ -264,24 +264,11 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
 
 - (void)insertCellAtIndexPath:(NSIndexPath *)insertedIndexPath {
     [self.rowsToInsert addObject:insertedIndexPath];
-    
-    // Shift all rows after the inserted one by one row index up
-    for(NSIndexPath *indexPath in self.indexPaths) {
-        if (indexPath.row >= insertedIndexPath.row) {
-            [self moveCellAtIndexPath:indexPath toIndexPath:[NSIndexPath indexPathForRow:indexPath.row + 1 inSection:indexPath.section]];
-        }
-    }
 }
 
 - (void)deleteCellAtIndexPath:(NSIndexPath *)deletedIndexPath {
     [self.rowsToDelete addObject:deletedIndexPath];
-    
-    // Shift all rows after the deleted one by one row index down
-    for(NSIndexPath *indexPath in self.indexPaths) {
-        if (indexPath.row > deletedIndexPath.row) {
-            [self moveCellAtIndexPath:indexPath toIndexPath:[NSIndexPath indexPathForRow:indexPath.row - 1 inSection:indexPath.section]];
-        }
-    }
+
 }
 
 - (void)moveCellAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath {
@@ -295,11 +282,8 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
 
 #pragma mark - Cell organization
 
-- (void)reloadData {
-    [self cleanupColumns];
-    
-    _numberOfColumms = [self numberOfColumns];
-    
+// Regenerates the index paths based on the number of rows
+- (void)regenerateIndexPaths {
     [self.indexPaths removeAllObjects];
 	
     NSInteger numberOfRows = [self numberOfCells];
@@ -308,21 +292,21 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
         [self.indexPaths addObject:indexPath];
         [self cellAtIndexPath:indexPath];
     }
+}
+
+- (void)reloadData {
+    [self cleanupColumns];
+    
+    _numberOfColumms = [self numberOfColumns];
+    
+    [self regenerateIndexPaths];
     [self resetView];
 }
 
 // Move all the view into the recycle pool and render the topmost cells
 - (void)resetView {
     
-    // -----
-    
-    for (NSIndexPath *indexPath in self.rowsToDelete) {
-        [self.indexPaths removeObject:indexPath];
-    }
-    
-    for (NSIndexPath *indexPath in self.rowsToInsert) {
-        [self.indexPaths addObject:indexPath];        
-    }
+    [self regenerateIndexPaths];
     
     self.rowsToDelete = nil;
     self.rowsToInsert = nil;
