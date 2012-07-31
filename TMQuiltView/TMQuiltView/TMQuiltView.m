@@ -356,6 +356,8 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
 
     //
     [self recycleViews];
+    
+    [self setNeedsLayout];
 }
 
 #pragma mark - Layout
