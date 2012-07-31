@@ -300,6 +300,7 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
     _numberOfColumms = [self numberOfColumns];
     
     [self regenerateIndexPaths];
+    [self setNeedsLayout];
     [self resetView];
 }
 
