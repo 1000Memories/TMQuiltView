@@ -124,6 +124,7 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
     self = [super initWithFrame:frame];
     if (self) {
         super.alwaysBounceVertical = YES;
+        self.backgroundColor = [UIColor blackColor];
         [self addGestureRecognizer:self.tapGestureRecognizer];
         _numberOfColumms = kTMQuiltViewDefaultColumns;
     }
