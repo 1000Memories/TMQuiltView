@@ -126,6 +126,7 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
         super.alwaysBounceVertical = YES;
         self.backgroundColor = [UIColor blackColor];
         [self addGestureRecognizer:self.tapGestureRecognizer];
+        
         _numberOfColumms = kTMQuiltViewDefaultColumns;
     }
     return self;
@@ -224,6 +225,21 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
     }
     _numberOfColumms = numberOfColumns;
     return numberOfColumns;
+}
+
+- (NSIndexPath*) indexPathForCell: (TMQuiltViewCell*) cell {
+    __block NSIndexPath* path = nil;
+    for(int i = 0; i < _numberOfColumms; i++) {
+        NSMutableDictionary* indexPathsToViews = self.indexPathToViewByColumn[i];
+        [indexPathsToViews enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            if (obj == cell) {
+                *stop = YES;
+                path = key;
+            }
+        }];
+        if (path) return path;
+    }
+    return nil;
 }
 
 /**
@@ -567,6 +583,8 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
         while((indexPath = (NSIndexPath *)[displayedViewEnumerator nextObject])) {
             TMQuiltViewCell *photoCell = [self.indexPathToViewByColumn[i] objectForKey:indexPath];
             if (CGRectContainsPoint(photoCell.frame, tapPoint)) {
+                if (!photoCell.userInteractionEnabled) break;
+                
                 photoCell.selected = YES;
                 if ([self.delegate respondsToSelector:@selector(quiltView:didSelectCellAtIndexPath:)]) {
                     [self.delegate quiltView:self didSelectCellAtIndexPath:indexPath];
