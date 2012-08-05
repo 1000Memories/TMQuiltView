@@ -132,6 +132,14 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
     return self;
 }
 
+- (void)awakeFromNib {
+    super.alwaysBounceVertical = YES;
+    self.backgroundColor = [UIColor blackColor];
+    [self addGestureRecognizer:self.tapGestureRecognizer];
+    
+    _numberOfColumms = kTMQuiltViewDefaultColumns;
+}
+
 - (void)setDelegate:(id<TMQuiltViewDelegate>)delegate {
     [super setDelegate:delegate];
 }
