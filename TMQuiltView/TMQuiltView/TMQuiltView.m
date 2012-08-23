@@ -130,6 +130,17 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        super.alwaysBounceVertical = YES;
+        [self addGestureRecognizer:self.tapGestureRecognizer];
+        _numberOfColumms = kTMQuiltViewDefaultColumns;
+    }
+    return self;
+}
+
 - (void)setDelegate:(id<TMQuiltViewDelegate>)delegate {
     [super setDelegate:delegate];
 }
