@@ -449,8 +449,7 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
             }
             (*bottom)++;
         }
-        
-        
+
         // Add a new cell to the top if our top cell is below the top of the visible area (and not the first cell)
         while ((*top > 0) && [TMQuiltView isRect:[self rectForCellAtIndex:*top column:i] entirelyInOrBelowScrollView:self]) {
             if ([TMQuiltView isRect:[self rectForCellAtIndex:*top - 1 column:i] partiallyInScrollView:self]) {
@@ -466,12 +465,10 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
         // Harvest any any views that have moved off screen and add them to the reuse pool
         for (NSIndexPath* indexPath in [indexPathToView allKeys]) {
             TMQuiltViewCell *view = [indexPathToView objectForKey:indexPath];
-            // Do not harvest the last cell in the column
-            if (*bottom == [indexPaths count] - 1) {
-                continue;
-            }
+
             if (![TMQuiltView isRect:view.frame partiallyInScrollView:self]) { // Rect intersection?
                 [indexPathToView removeObjectForKey:indexPath];
+                
                 // Limit the size on the reuse pool
                 if ([[self reusableViewsWithReuseIdentifier:view.reuseIdentifier] count] < 10) {
                     [[self reusableViewsWithReuseIdentifier:view.reuseIdentifier] addObject:view];
@@ -495,6 +492,19 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
             if ([indexPathToView objectForKey:[indexPaths objectAtIndex:j]] != nil) {
                 *bottom = j;
                 break;
+            }
+        }
+
+        // The last cell in a column might have been harvested after our scroll view bounce.
+        // Here we check if the last cell's frame is partially in our scroll view
+        if (*bottom == [indexPaths count] - 1 && [TMQuiltView isRect:[self rectForCellAtIndex:*bottom column:i] partiallyInScrollView:self]){
+            NSIndexPath *indexPath = [indexPaths objectAtIndex:*bottom];
+            // We check, if the last cell has actually been harvested...
+            if ([indexPathToView objectForKey:indexPath] == nil) {
+                // ... and if so, we add it back
+                UIView* cell = [self.dataSource quiltView:self cellAtIndexPath:indexPath];
+                [self addSubview:cell];
+                [indexPathToView setObject:cell forKey:indexPath];
             }
         }
     }
