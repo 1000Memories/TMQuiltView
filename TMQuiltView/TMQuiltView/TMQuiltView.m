@@ -466,6 +466,10 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
         // Harvest any any views that have moved off screen and add them to the reuse pool
         for (NSIndexPath* indexPath in [indexPathToView allKeys]) {
             TMQuiltViewCell *view = [indexPathToView objectForKey:indexPath];
+            // Do not harvest the last cell in the column
+            if (*bottom == [indexPaths count] - 1) {
+                continue;
+            }
             if (![TMQuiltView isRect:view.frame partiallyInScrollView:self]) { // Rect intersection?
                 [indexPathToView removeObjectForKey:indexPath];
                 // Limit the size on the reuse pool
