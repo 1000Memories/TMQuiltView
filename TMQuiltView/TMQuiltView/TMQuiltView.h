@@ -55,7 +55,7 @@ typedef enum {
 
 @end
 
-@interface TMQuiltView : UIScrollView
+@interface TMQuiltView : UIScrollView <UIGestureRecognizerDelegate>
 
 @property (nonatomic, assign) id<TMQuiltViewDataSource> dataSource;
 @property (nonatomic, assign) id<TMQuiltViewDelegate> delegate;
