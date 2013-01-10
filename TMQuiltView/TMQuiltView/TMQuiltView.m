@@ -26,7 +26,9 @@ const CGFloat kTMQuiltViewDefaultCellHeight = 50.0f;
 
 NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdentifier";
 
-@interface TMQuiltView()
+@interface TMQuiltView(){
+      BOOL _videoPlayedInFullScreen;
+}
 
 @property (nonatomic, readonly, retain) NSMutableSet *indexPaths;
 @property (nonatomic, readonly, retain) NSMutableDictionary *reusableViewsDictionary;
@@ -126,9 +128,24 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
         super.alwaysBounceVertical = YES;
         [self addGestureRecognizer:self.tapGestureRecognizer];
         _numberOfColumms = kTMQuiltViewDefaultColumns;
+        _videoPlayedInFullScreen = NO;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoInFullScreenDidStart:) name:@"UIMoviePlayerControllerDidEnterFullscreenNotification" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoInFullScreenDidEnd:) name:@"UIMoviePlayerControllerDidExitFullscreenNotification" object:nil];
+
     }
     return self;
 }
+ 
+- (void)videoInFullScreenDidStart:(id)notification
+{
+    _videoPlayedInFullScreen = YES;
+}
+
+- (void)videoInFullScreenDidEnd:(id)notification
+{
+    _videoPlayedInFullScreen = NO;
+}
+
 
 - (void)setDelegate:(id<TMQuiltViewDelegate>)delegate {
     [super setDelegate:delegate];
@@ -397,7 +414,7 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
                              [self cellWidth], height);
 }
 
-- (void)layoutSubviews {
+- (void)layoutSubviews {    
     [super layoutSubviews];
     
     self.contentSize = CGSizeMake(self.bounds.size.width, self.contentSize.height);
@@ -511,9 +528,17 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
 }
 
 - (void)setFrame:(CGRect)frame {
+    // If we have an MPMoviePlayer that is just exiting fullscreen,
+    // removing it's superview from the view hierarchy would cause
+    // the minimalize animation to be broken
+    if (_videoPlayedInFullScreen) {
+        _videoPlayedInFullScreen = NO;
+        return;
+    }
+    
     [super setFrame:frame];
     
-    // We need to recompute the cell tops because their width is 
+    // We need to recompute the cell tops because their width is
     // based on the bounding width, and their height is generally based
     // on their width.
     [self resetView];
