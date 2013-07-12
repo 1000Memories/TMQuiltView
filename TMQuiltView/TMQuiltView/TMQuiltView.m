@@ -151,15 +151,6 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        if (self.subviews.count > 1) {
-            assert(false);  //don't use too many views in quiltview, just only one can use to header
-        }
-        if (self.subviews.count == 1) {
-            _quiltHeaderView = [[self.subviews objectAtIndex:0] retain];
-            CGRect headerFrame = self.quiltHeaderView.frame;
-            headerFrame.origin.y = 0;
-            self.quiltHeaderView.frame = headerFrame;
-        }
         super.alwaysBounceVertical = YES;
         [self addGestureRecognizer:self.tapGestureRecognizer];
         _numberOfColumms = kTMQuiltViewDefaultColumns;
