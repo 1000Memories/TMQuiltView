@@ -46,6 +46,11 @@ const NSInteger kNumberOfCells = 1000;
     [super viewDidLoad];
     
     self.quiltView.backgroundColor = [UIColor blackColor];
+    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 150)];
+    header.backgroundColor = [UIColor blueColor];
+    self.quiltView.quiltHeaderView = header;
+    [header release];
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

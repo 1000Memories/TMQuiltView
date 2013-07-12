@@ -72,7 +72,7 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
 @synthesize rowsToInsert = _rowsToInsert;
 
 @synthesize tapGestureRecognizer = _tapGestureRecognizer;
-
+@synthesize quiltHeaderView = _quiltHeaderView;
 #pragma mark - Memory Management
 
 - (void)dealloc {
@@ -134,6 +134,15 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
+        if (self.subviews.count > 1) {
+            assert(false);  //don't use too many views in quiltview, just only one can use to header
+        }
+        if (self.subviews.count == 1) {
+            _quiltHeaderView = [[self.subviews objectAtIndex:0] retain];
+            CGRect headerFrame = self.quiltHeaderView.frame;
+            headerFrame.origin.y = 0;
+            self.quiltHeaderView.frame = headerFrame;
+        }
         super.alwaysBounceVertical = YES;
         [self addGestureRecognizer:self.tapGestureRecognizer];
         _numberOfColumms = kTMQuiltViewDefaultColumns;
@@ -141,6 +150,21 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
     return self;
 }
 
+- (void)setQuiltHeaderView:(UIView *)quiltHeaderView
+{
+    [self willChangeValueForKey:@"quiltHeaderView"];
+    [quiltHeaderView removeFromSuperview];
+    [quiltHeaderView retain];
+    [_quiltHeaderView removeFromSuperview];
+    [_quiltHeaderView release];
+    _quiltHeaderView = quiltHeaderView;
+
+    CGRect headerFrame = _quiltHeaderView.frame;
+    headerFrame.origin.y = 0;
+    _quiltHeaderView.frame = headerFrame;
+    [self addSubview:_quiltHeaderView];
+    [self didChangeValueForKey:@"quiltHeaderView"];
+}
 
 - (void)setDelegate:(id<TMQuiltViewDelegate>)delegate {
     [super setDelegate:delegate];
@@ -327,7 +351,11 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
     
     float heights[_numberOfColumms];
     for (int i = 0; i < _numberOfColumms; i++) {
-        heights[i] = 0.0;
+        if (self.quiltHeaderView) {
+            heights[i] = self.quiltHeaderView.frame.size.height;
+        } else {
+            heights[i] = 0.0;
+        }
     }
     
     for (int i = 0; i < _numberOfColumms; i++) {
