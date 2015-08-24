@@ -57,8 +57,8 @@ typedef enum {
 
 @interface TMQuiltView : UIScrollView
 
-@property (nonatomic, assign) id<TMQuiltViewDataSource> dataSource;
-@property (nonatomic, assign) id<TMQuiltViewDelegate> delegate;
+@property (nonatomic, weak) id<TMQuiltViewDataSource> dataSource;
+@property (nonatomic, weak) id<TMQuiltViewDelegate> delegate;
 
 // Returns the cell if it's visible and indexPath is valid. Returns nil otherwise
 - (TMQuiltViewCell *)cellAtIndexPath:(NSIndexPath*)indexPath;

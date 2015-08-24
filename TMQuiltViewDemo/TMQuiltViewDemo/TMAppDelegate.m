@@ -23,24 +23,14 @@
 
 @implementation TMAppDelegate
 
-@synthesize window = _window;
-@synthesize viewController = _viewController;
-
-- (void)dealloc
-{
-    [_window release];
-    [_viewController release];
-    [super dealloc];
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        self.viewController = [[[TMDemoQuiltViewController alloc] initWithNibName:@"TMViewController_iPhone" bundle:nil] autorelease];
+        self.viewController = [[TMDemoQuiltViewController alloc] initWithNibName:@"TMViewController_iPhone" bundle:nil];
     } else {
-        self.viewController = [[[TMDemoQuiltViewController alloc] initWithNibName:@"TMViewController_iPad" bundle:nil] autorelease];
+        self.viewController = [[TMDemoQuiltViewController alloc] initWithNibName:@"TMViewController_iPad" bundle:nil];
     }
     
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleBlackOpaque;

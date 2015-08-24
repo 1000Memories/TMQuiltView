@@ -67,7 +67,7 @@ You can also directly open the TMQuiltViewDemo in XCode and build the project.
 - (NSArray *)images {
     if (!_images) {
         NSMutableArray *imageNames = [NSMutableArray array];
-        for(int i = 0; i < kNumberOfCells; i++) {
+        for(NSInteger i = 0; i < kNumberOfCells; i++) {
             [imageNames addObject:[NSString stringWithFormat:@"%d.jpeg", i % 10 + 1]];
         }
         _images = [imageNames retain];
@@ -118,7 +118,7 @@ You can also directly open the TMQuiltViewDemo in XCode and build the project.
 TODOs
 =======
 
-- ARC
+- ARC (done, test in Xcode 6.3.1 , iOS 8.3)
 - Handle NSIndexPath sections
 - Interface is still limited compared to UITableView's
 - Better animations

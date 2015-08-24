@@ -24,16 +24,6 @@ const CGFloat kTMPhotoQuiltViewMargin = 5;
 
 @implementation TMPhotoQuiltViewCell
 
-@synthesize photoView = _photoView;
-@synthesize titleLabel = _titleLabel;
-
-- (void)dealloc {
-    [_photoView release], _photoView = nil;
-    [_titleLabel release], _titleLabel = nil;
-    
-    [super dealloc];
-}
-
 - (id)initWithReuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithReuseIdentifier:reuseIdentifier];
@@ -58,7 +48,7 @@ const CGFloat kTMPhotoQuiltViewMargin = 5;
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
         _titleLabel.textColor = [UIColor whiteColor];
-        _titleLabel.textAlignment = UITextAlignmentCenter;
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_titleLabel];
     }
     return _titleLabel;
