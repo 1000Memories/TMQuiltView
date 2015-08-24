@@ -13,6 +13,7 @@ Features
 - Customization of the margins
 - Number of column can depend on orientation
 - Handling of datasource changes (row insertion/removal)
+- ARC support
 
 Installation
 =======
@@ -67,7 +68,7 @@ You can also directly open the TMQuiltViewDemo in XCode and build the project.
 - (NSArray *)images {
     if (!_images) {
         NSMutableArray *imageNames = [NSMutableArray array];
-        for(int i = 0; i < kNumberOfCells; i++) {
+        for(NSInteger i = 0; i < kNumberOfCells; i++) {
             [imageNames addObject:[NSString stringWithFormat:@"%d.jpeg", i % 10 + 1]];
         }
         _images = [imageNames retain];
@@ -118,7 +119,6 @@ You can also directly open the TMQuiltViewDemo in XCode and build the project.
 TODOs
 =======
 
-- ARC
 - Handle NSIndexPath sections
 - Interface is still limited compared to UITableView's
 - Better animations

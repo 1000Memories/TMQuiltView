@@ -29,6 +29,7 @@
 		15F3E28D15BA091E00218C9C /* 9.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 15F3E28315BA091E00218C9C /* 9.jpeg */; };
 		15F3E28E15BA091E00218C9C /* 10.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 15F3E28415BA091E00218C9C /* 10.jpeg */; };
 		15F3E29115BA09CF00218C9C /* TMPhotoQuiltViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F3E29015BA09CF00218C9C /* TMPhotoQuiltViewCell.m */; };
+		DE1A1E781B8AC5A80028E522 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE1A1E771B8AC5A80028E522 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		15F3E28415BA091E00218C9C /* 10.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 10.jpeg; path = TMQuiltViewDemo/images/10.jpeg; sourceTree = "<group>"; };
 		15F3E28F15BA09CF00218C9C /* TMPhotoQuiltViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMPhotoQuiltViewCell.h; sourceTree = "<group>"; };
 		15F3E29015BA09CF00218C9C /* TMPhotoQuiltViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMPhotoQuiltViewCell.m; sourceTree = "<group>"; };
+		DE1A1E771B8AC5A80028E522 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 		15F3E23215B9DCAE00218C9C = {
 			isa = PBXGroup;
 			children = (
+				DE1A1E771B8AC5A80028E522 /* Default-568h@2x.png */,
 				15955B8715BF6F9F00D800C7 /* README.md */,
 				154331FB15BE354200011AA9 /* TMQuiltView.xcodeproj */,
 				15F3E27915BA090100218C9C /* Resources */,
@@ -222,7 +225,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = TM;
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0630;
 			};
 			buildConfigurationList = 15F3E23715B9DCAE00218C9C /* Build configuration list for PBXProject "TMQuiltViewDemo" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -277,6 +280,7 @@
 				15F3E28715BA091E00218C9C /* 3.jpeg in Resources */,
 				15F3E28815BA091E00218C9C /* 4.jpeg in Resources */,
 				15F3E28915BA091E00218C9C /* 5.jpeg in Resources */,
+				DE1A1E781B8AC5A80028E522 /* Default-568h@2x.png in Resources */,
 				15F3E28A15BA091E00218C9C /* 6.jpeg in Resources */,
 				15F3E28B15BA091E00218C9C /* 7.jpeg in Resources */,
 				15F3E28C15BA091E00218C9C /* 8.jpeg in Resources */,
@@ -342,11 +346,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -354,10 +366,14 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -367,15 +383,26 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -386,9 +413,11 @@
 		15F3E25F15B9DCAE00218C9C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TMQuiltViewDemo/TMQuiltViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "TMQuiltViewDemo/TMQuiltViewDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -397,9 +426,11 @@
 		15F3E26015B9DCAE00218C9C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TMQuiltViewDemo/TMQuiltViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "TMQuiltViewDemo/TMQuiltViewDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

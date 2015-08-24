@@ -24,6 +24,6 @@
 
 @interface TMQuiltViewController : UIViewController
 
-@property (nonatomic, retain) TMQuiltView *quiltView;
+@property (nonatomic, strong) TMQuiltView *quiltView;
 
 @end

@@ -21,7 +21,7 @@
 
 @interface TMPhotoQuiltViewCell : TMQuiltViewCell
 
-@property (nonatomic, retain) UIImageView *photoView;
-@property (nonatomic, retain) UILabel *titleLabel;
+@property (nonatomic, strong) UIImageView *photoView;
+@property (nonatomic, strong) UILabel *titleLabel;
 
 @end
