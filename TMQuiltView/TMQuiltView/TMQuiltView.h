@@ -55,11 +55,11 @@ typedef enum {
 
 @end
 
-@interface TMQuiltView : UIScrollView
+@interface TMQuiltView : UIScrollView <UIGestureRecognizerDelegate>
 
 @property (nonatomic, assign) id<TMQuiltViewDataSource> dataSource;
 @property (nonatomic, assign) id<TMQuiltViewDelegate> delegate;
-
+@property(nonatomic,retain) IBOutlet UIView *quiltHeaderView;
 // Returns the cell if it's visible and indexPath is valid. Returns nil otherwise
 - (TMQuiltViewCell *)cellAtIndexPath:(NSIndexPath*)indexPath;
 
@@ -72,7 +72,6 @@ typedef enum {
 
 // Reloads all the cells. You need to call this if the number of columns changes.
 - (void)reloadData;
-
 // Currently calling beginUpdates and endUpdates before and after row insertions and removals is required.
 - (void)beginUpdates;
 - (void)endUpdates;

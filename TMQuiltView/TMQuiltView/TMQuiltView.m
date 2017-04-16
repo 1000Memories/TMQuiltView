@@ -26,7 +26,9 @@ const CGFloat kTMQuiltViewDefaultCellHeight = 50.0f;
 
 NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdentifier";
 
-@interface TMQuiltView()
+@interface TMQuiltView(){
+      BOOL _videoPlayedInFullScreen;
+}
 
 @property (nonatomic, readonly, retain) NSMutableSet *indexPaths;
 @property (nonatomic, readonly, retain) NSMutableDictionary *reusableViewsDictionary;
@@ -72,7 +74,7 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
 @synthesize rowsToInsert = _rowsToInsert;
 
 @synthesize tapGestureRecognizer = _tapGestureRecognizer;
-
+@synthesize quiltHeaderView = _quiltHeaderView;
 #pragma mark - Memory Management
 
 - (void)dealloc {
@@ -126,8 +128,50 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
         super.alwaysBounceVertical = YES;
         [self addGestureRecognizer:self.tapGestureRecognizer];
         _numberOfColumms = kTMQuiltViewDefaultColumns;
+        _videoPlayedInFullScreen = NO;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoInFullScreenDidStart:) name:@"UIMoviePlayerControllerDidEnterFullscreenNotification" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoInFullScreenDidEnd:) name:@"UIMoviePlayerControllerDidExitFullscreenNotification" object:nil];
+
     }
     return self;
+}
+ 
+- (void)videoInFullScreenDidStart:(id)notification
+{
+    _videoPlayedInFullScreen = YES;
+}
+
+- (void)videoInFullScreenDidEnd:(id)notification
+{
+    _videoPlayedInFullScreen = NO;
+}
+
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        super.alwaysBounceVertical = YES;
+        [self addGestureRecognizer:self.tapGestureRecognizer];
+        _numberOfColumms = kTMQuiltViewDefaultColumns;
+    }
+    return self;
+}
+
+- (void)setQuiltHeaderView:(UIView *)quiltHeaderView
+{
+    [self willChangeValueForKey:@"quiltHeaderView"];
+    [quiltHeaderView removeFromSuperview];
+    [quiltHeaderView retain];
+    [_quiltHeaderView removeFromSuperview];
+    [_quiltHeaderView release];
+    _quiltHeaderView = quiltHeaderView;
+
+    CGRect headerFrame = _quiltHeaderView.frame;
+    headerFrame.origin.y = 0;
+    _quiltHeaderView.frame = headerFrame;
+    [self addSubview:_quiltHeaderView];
+    [self didChangeValueForKey:@"quiltHeaderView"];
 }
 
 - (void)setDelegate:(id<TMQuiltViewDelegate>)delegate {
@@ -315,7 +359,11 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
     
     float heights[_numberOfColumms];
     for (int i = 0; i < _numberOfColumms; i++) {
-        heights[i] = 0.0;
+        if (self.quiltHeaderView) {
+            heights[i] = self.quiltHeaderView.frame.size.height;
+        } else {
+            heights[i] = 0.0;
+        }
     }
     
     for (int i = 0; i < _numberOfColumms; i++) {
@@ -397,7 +445,7 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
                              [self cellWidth], height);
 }
 
-- (void)layoutSubviews {
+- (void)layoutSubviews {    
     [super layoutSubviews];
     
     self.contentSize = CGSizeMake(self.bounds.size.width, self.contentSize.height);
@@ -449,8 +497,7 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
             }
             (*bottom)++;
         }
-        
-        
+
         // Add a new cell to the top if our top cell is below the top of the visible area (and not the first cell)
         while ((*top > 0) && [TMQuiltView isRect:[self rectForCellAtIndex:*top column:i] entirelyInOrBelowScrollView:self]) {
             if ([TMQuiltView isRect:[self rectForCellAtIndex:*top - 1 column:i] partiallyInScrollView:self]) {
@@ -466,8 +513,10 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
         // Harvest any any views that have moved off screen and add them to the reuse pool
         for (NSIndexPath* indexPath in [indexPathToView allKeys]) {
             TMQuiltViewCell *view = [indexPathToView objectForKey:indexPath];
+
             if (![TMQuiltView isRect:view.frame partiallyInScrollView:self]) { // Rect intersection?
                 [indexPathToView removeObjectForKey:indexPath];
+                
                 // Limit the size on the reuse pool
                 if ([[self reusableViewsWithReuseIdentifier:view.reuseIdentifier] count] < 10) {
                     [[self reusableViewsWithReuseIdentifier:view.reuseIdentifier] addObject:view];
@@ -493,13 +542,34 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
                 break;
             }
         }
+
+        // The last cell in a column might have been harvested after our scroll view bounce.
+        // Here we check if the last cell's frame is partially in our scroll view
+        if (*bottom == [indexPaths count] - 1 && [TMQuiltView isRect:[self rectForCellAtIndex:*bottom column:i] partiallyInScrollView:self]){
+            NSIndexPath *indexPath = [indexPaths objectAtIndex:*bottom];
+            // We check, if the last cell has actually been harvested...
+            if ([indexPathToView objectForKey:indexPath] == nil) {
+                // ... and if so, we add it back
+                UIView* cell = [self.dataSource quiltView:self cellAtIndexPath:indexPath];
+                [self addSubview:cell];
+                [indexPathToView setObject:cell forKey:indexPath];
+            }
+        }
     }
 }
 
 - (void)setFrame:(CGRect)frame {
+    // If we have an MPMoviePlayer that is just exiting fullscreen,
+    // removing it's superview from the view hierarchy would cause
+    // the minimalize animation to be broken
+    if (_videoPlayedInFullScreen) {
+        _videoPlayedInFullScreen = NO;
+        return;
+    }
+    
     [super setFrame:frame];
     
-    // We need to recompute the cell tops because their width is 
+    // We need to recompute the cell tops because their width is
     // based on the bounding width, and their height is generally based
     // on their width.
     [self resetView];
@@ -548,6 +618,7 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
 - (UITapGestureRecognizer *)tapGestureRecognizer {
     if (!_tapGestureRecognizer) {
         _tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
+        _tapGestureRecognizer.delegate = self;
     }
     return _tapGestureRecognizer;
 }
@@ -577,6 +648,13 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
     
 }
 
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    if ([touch.view isKindOfClass:[UIControl class]]) {
+        // we touched a button, slider, or other UIControl
+        return NO; // ignore the touch
+    }
+    return YES; // handle the touch
+}
 
 
 @end
