@@ -18,10 +18,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TMQuiltView.h"
 
 @interface TMPhotoQuiltViewCell : TMQuiltViewCell
 
 @property (nonatomic, retain) UIImageView *photoView;
 @property (nonatomic, retain) UILabel *titleLabel;
+@property (nonatomic, retain) UIImageView *starView;
 
 @end

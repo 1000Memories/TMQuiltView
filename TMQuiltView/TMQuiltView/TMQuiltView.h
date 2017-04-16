@@ -60,6 +60,8 @@ typedef enum {
 @property (nonatomic, assign) id<TMQuiltViewDataSource> dataSource;
 @property (nonatomic, assign) id<TMQuiltViewDelegate> delegate;
 
+- (NSIndexPath*) indexPathForCell: (TMQuiltViewCell*) cell;
+
 // Returns the cell if it's visible and indexPath is valid. Returns nil otherwise
 - (TMQuiltViewCell *)cellAtIndexPath:(NSIndexPath*)indexPath;
 

@@ -26,6 +26,7 @@ const CGFloat kTMPhotoQuiltViewMargin = 5;
 
 @synthesize photoView = _photoView;
 @synthesize titleLabel = _titleLabel;
+@synthesize starView = _starView;
 
 - (void)dealloc {
     [_photoView release], _photoView = nil;
@@ -43,6 +44,17 @@ const CGFloat kTMPhotoQuiltViewMargin = 5;
     return self;
 }
 
+- (UIImageView *)starView {
+    if (!_starView) {
+        _starView = [[UIImageView alloc] init];
+        _starView.contentMode = UIViewContentModeTopRight;
+        _starView.clipsToBounds = YES;
+        _starView.image = [UIImage imageNamed: @"star"];
+        [self addSubview:_starView];
+    }
+    return _starView;
+}
+
 - (UIImageView *)photoView {
     if (!_photoView) {
         _photoView = [[UIImageView alloc] init];
@@ -58,6 +70,7 @@ const CGFloat kTMPhotoQuiltViewMargin = 5;
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
         _titleLabel.textColor = [UIColor whiteColor];
+        _titleLabel.font = [UIFont boldSystemFontOfSize: 14];
         _titleLabel.textAlignment = UITextAlignmentCenter;
         [self addSubview:_titleLabel];
     }
@@ -68,6 +81,7 @@ const CGFloat kTMPhotoQuiltViewMargin = 5;
     self.photoView.frame = CGRectInset(self.bounds, kTMPhotoQuiltViewMargin, kTMPhotoQuiltViewMargin);
     self.titleLabel.frame = CGRectMake(kTMPhotoQuiltViewMargin, self.bounds.size.height - 20 - kTMPhotoQuiltViewMargin,
                                        self.bounds.size.width - 2 * kTMPhotoQuiltViewMargin, 20);
+    self.starView.frame = CGRectInset(self.bounds, 5, 5);
 }
 
 @end
