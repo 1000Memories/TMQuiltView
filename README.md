@@ -25,7 +25,7 @@ Usage
 =======
 
 Below is the excerpt from the demo view controller which shows how easy it is to setup a TMQuiltView. 
-You can also directly open the TMQuiltViewDemo in XCode and build the project.
+You can also directly open the TMQuiltViewDemo in Xcode and build the project.
 
 ``` objective-c
 
