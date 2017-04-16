@@ -44,7 +44,7 @@ You can also directly open the TMQuiltViewDemo in XCode and build the project.
     [super dealloc];
 }
 
-#pragma mark - UIViewController
+# pragma mark - UIViewController
 
 - (void)viewDidLoad
 {
@@ -62,7 +62,7 @@ You can also directly open the TMQuiltViewDemo in XCode and build the project.
     }
 }
 
-#pragma mark - QuiltViewControllerDataSource
+# pragma mark - QuiltViewControllerDataSource
 
 - (NSArray *)images {
     if (!_images) {
@@ -94,7 +94,7 @@ You can also directly open the TMQuiltViewDemo in XCode and build the project.
     return cell;
 }
 
-#pragma mark - TMQuiltViewDelegate
+# pragma mark - TMQuiltViewDelegate
 
 - (NSInteger)quiltViewNumberOfColumns:(TMQuiltView *)quiltView {
 
